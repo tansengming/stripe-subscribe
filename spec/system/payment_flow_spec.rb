@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Payment Flow' do
-  let(:user) { create :user }
+  let(:user) { User.create email: "#{SecureRandom.uuid}@example.com" }
   before { sign_in user }
 
   it do

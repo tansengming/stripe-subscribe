@@ -13,3 +13,18 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+
+# Note: The following lines are require for rails specs to run even though
+# they're repeated from the gemspec.
+
+gem 'rails', '~> 5.2.0'
+gem 'devise'
+gem "stripe-rails"
+gem "devise"
+gem 'bootstrap'
+gem 'sqlite3'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
