@@ -20,9 +20,10 @@ gemspec
 gem 'rails', '~> 5.2.0'
 gem 'devise'
 gem "stripe-rails"
-gem "devise"
 gem 'bootstrap'
 gem 'sqlite3'
+gem 'haml-rails'
+gem 'reform-rails'
 
 group :test do
   gem 'rspec-rails'
