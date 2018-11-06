@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_210943) do
+ActiveRecord::Schema.define(version: 2018_11_06_201638) do
+
+  create_table "stripe_ids", force: :cascade do |t|
+    t.string "stripe_id"
+    t.string "stripe_object"
+    t.integer "stripeable_id"
+    t.string "stripeable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stripe_id"], name: "index_stripe_ids_on_stripe_id"
+    t.index ["stripeable_type", "stripeable_id"], name: "index_stripe_ids_on_stripeable_type_and_stripeable_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
