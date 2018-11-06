@@ -29,4 +29,5 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'stripe-ruby-mock', require: 'stripe_mock'
+  gem 'tapp'
 end
