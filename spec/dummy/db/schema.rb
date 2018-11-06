@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2018_11_06_201638) do
 
-  create_table "stripe_ids", force: :cascade do |t|
-    t.string "stripe_id"
-    t.string "stripe_object"
+  create_table "stripe_subscribe_remote_ids", force: :cascade do |t|
+    t.string "remote_id"
+    t.string "remote_object"
     t.integer "stripeable_id"
     t.string "stripeable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stripe_id"], name: "index_stripe_ids_on_stripe_id"
-    t.index ["stripeable_type", "stripeable_id"], name: "index_stripe_ids_on_stripeable_type_and_stripeable_id"
+    t.index ["remote_id"], name: "index_stripe_subscribe_remote_ids_on_remote_id"
+    t.index ["stripeable_type", "stripeable_id"], name: "index_remote_ids_on_stripeable_type_and_stripeable_id"
   end
 
   create_table "users", force: :cascade do |t|
