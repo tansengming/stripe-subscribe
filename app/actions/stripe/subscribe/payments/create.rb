@@ -8,7 +8,6 @@ module Stripe
           new(stripe_token: stripe_token, plan_name: plan_name, user: user).call
         end
 
-
         def initialize(stripe_token:, plan_name:, user:)
           @stripe_token = stripe_token
           @plan_name    = plan_name
