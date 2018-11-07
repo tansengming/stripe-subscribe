@@ -42,7 +42,7 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
       let(:params) { default_params }
 
       it 'should create a new stripe customer' do
-        expect { subject }.to change { Stripe::Subscribe::RemoteId.count }.by(1)
+        expect { subject }.to change { Stripe::Subscribe::RemoteResource.count }.by(1)
         expect(subject).to redirect_to '/'
         expect(user.stripe_customer.subscriptions.data.map { |s| s.plan[:id] }).to eq ['nice_tip']
       end
@@ -52,7 +52,7 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
       let(:params) { default_params.merge(plan: 'does_not_exist') }
 
       it 'should not create a new stripe customer' do
-        expect { subject }.not_to change { Stripe::Subscribe::RemoteId.count }
+        expect { subject }.not_to change { Stripe::Subscribe::RemoteResource.count }
         expect(subject).to redirect_to '/stripe/subscribe/payment/new'
       end
     end
@@ -61,7 +61,7 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
       let(:params) { default_params.merge(stripeToken: 'sk_test_fake') }
 
       it 'should not create a new stripe customer' do
-        expect { subject }.not_to change { Stripe::Subscribe::RemoteId.count }
+        expect { subject }.not_to change { Stripe::Subscribe::RemoteResource.count }
         expect(user.reload.stripe_customer).to be_nil
         expect(subject).to redirect_to '/stripe/subscribe/payment/new'
       end
@@ -71,7 +71,7 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
       let(:params) { default_params.merge(stripeToken: nil) }
 
       it 'should not create a new stripe customer' do
-        expect { subject }.not_to change { Stripe::Subscribe::RemoteId.count }
+        expect { subject }.not_to change { Stripe::Subscribe::RemoteResource.count }
         expect(user.reload.stripe_customer).to be_nil
         expect(subject).to redirect_to '/stripe/subscribe/payment/new'
       end
