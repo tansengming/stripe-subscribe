@@ -23,8 +23,8 @@ gem 'bootstrap'
 gem 'devise'
 gem 'haml-rails'
 gem 'reform-rails'
-gem "stripe-rails"
 gem 'sqlite3'
+gem 'stripe-rails'
 
 group :test do
   gem 'capybara'
