@@ -17,7 +17,7 @@ module Stripe
 
         def call
           new_stripe_customer = Stripe::Customer.create(
-            email: user&.email,
+            email: user.email,
             source: stripe_token,
             plan: plan_name
           )
