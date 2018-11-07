@@ -1,4 +1,4 @@
-require "stripe/subscribe/engine"
+require 'stripe/subscribe/engine'
 
 module Stripe
   module Subscribe
