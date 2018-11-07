@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Payment Flow' do
-  let(:user) { User.create email: "#{SecureRandom.uuid}@example.com" }
+  let(:user) { User.create! email: "#{SecureRandom.uuid}@example.com", password: SecureRandom.uuid }
   before { sign_in user }
 
   it do
@@ -14,7 +14,7 @@ RSpec.describe 'Payment Flow' do
     end
 
     expect(page.current_path).to eq '/stripe/subscribe/payment/new'
-    # Note: cannot fulfill payment because there is no way for me to
+    # Note: cannot fulfill payment because there is no way to
     # get a Strip token. Goes to failure path instead.
     click_on 'Submit Monthly Payment'
     expect(page.current_path).to eq '/stripe/subscribe/plans'

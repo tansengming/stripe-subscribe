@@ -14,19 +14,17 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-APP_RAKEFILE = File.expand_path("spec/dummy/Rakefile", __dir__)
+APP_RAKEFILE = File.expand_path('spec/dummy/Rakefile', __dir__)
 load 'rails/tasks/engine.rake'
 
 load 'rails/tasks/statistics.rake'
 
 require 'bundler/gem_tasks'
 
-require 'rake/testtask'
-
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'spec'
-  t.pattern = 'spec/**/*_spec.rb'
-  t.verbose = false
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
 end
 
-task default: :test
+task default: :spec

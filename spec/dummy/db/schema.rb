@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_210943) do
+ActiveRecord::Schema.define(version: 2018_11_06_201638) do
+
+  create_table "stripe_subscribe_remote_resources", force: :cascade do |t|
+    t.string "remote_resource_id"
+    t.string "remote_resource_type"
+    t.integer "stripeable_id"
+    t.string "stripeable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["remote_resource_id"], name: "index_stripe_subscribe_remote_resources_on_remote_resource_id"
+    t.index ["stripeable_type", "stripeable_id"], name: "index_remote_resource_on_stripeable_type_and_stripeable_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

@@ -18,13 +18,17 @@ gemspec
 # they're repeated from the gemspec.
 
 gem 'rails', '~> 5.2.0'
-gem 'devise'
-gem "stripe-rails"
-gem "devise"
+
 gem 'bootstrap'
+gem 'devise'
+gem 'haml-rails'
+gem 'reform-rails'
 gem 'sqlite3'
+gem 'stripe-rails'
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara'
+  gem 'rspec-rails'
+  gem 'stripe-ruby-mock', require: 'stripe_mock'
+  gem 'tapp'
 end
