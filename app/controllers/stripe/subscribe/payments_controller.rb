@@ -1,6 +1,8 @@
 module Stripe
   module Subscribe
     class PaymentsController < ApplicationController
+      layout 'stripe/subscribe/application'
+
       rescue_from Stripe::InvalidRequestError, with: :retry_payment
       helper_method :selected_plan
 
