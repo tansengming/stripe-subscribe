@@ -2,7 +2,6 @@ module Stripe
   module Subscribe
     class PaymentsController < ApplicationController
       rescue_from Stripe::InvalidRequestError, with: :retry_payment
-      # before_action :authenticate_user! # 'TODO'
       helper_method :selected_plan
 
       def new
