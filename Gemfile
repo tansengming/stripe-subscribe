@@ -29,6 +29,7 @@ gem 'stripe-rails'
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'simplecov'
   gem 'stripe-ruby-mock', require: 'stripe_mock'
   gem 'tapp'
 end
