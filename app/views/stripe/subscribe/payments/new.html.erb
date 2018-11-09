@@ -1,18 +1,26 @@
-.row
-  .col
-    = form_tag(stripe_subscribe.payment_path, method: 'post', id: 'payment-form') do
-      .form-row
-        %label{ for: 'card-element' }
+<div class="row">
+  <div class="col">
+    <%= form_tag(stripe_subscribe.payment_path, method: 'post', id: 'payment-form') do %>
+      <div class="form-row">
+        <label for="card-element">
           Credit or debit card
-        #card-element.form-control
-          / a Stripe Element will be inserted here.
-        / Used to display Element errors
-        #card-errors.alert-danger
-      = hidden_field_tag 'plan', selected_plan.id
-      %button.btn.btn-block.btn-outline-primary.my-3
-        Submit Monthly Payment
-%style
-  :plain
+        </label>
+        <div class="form-control" id="card-element">
+          <!-- a Stripe Element will be inserted here.
+          -->
+        </div>
+        <!-- Used to display Element errors
+        -->
+        <div class="alert-danger" id="card-errors"></div>
+      </div>
+      <%= hidden_field_tag 'plan', selected_plan.id %>
+      <button class="btn btn-block btn-outline-primary my-3">
+        Submit Payment
+      </button>
+    <% end %>
+  </div>
+</div>
+<style>
     .StripeElement {
       background-color: white;
       padding: 8px 12px;
@@ -34,9 +42,8 @@
     .StripeElement--webkit-autofill {
       background-color: #fefde5 !important;
     }
-
-= stripe_javascript_tag
-:javascript
+</style>
+<script>
   var elements = stripe.elements();
   var card = elements.create('card');
   // Add an instance of the card Element into the `card-element` <div>
@@ -80,3 +87,4 @@
     // Submit the form
     form.submit();
   }
+</script>
