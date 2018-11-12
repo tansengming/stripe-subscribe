@@ -3,9 +3,15 @@
 # Example
 # Stripe::Plans::PRIMO #=> 'primo'
 
-Stripe.plan :nice_tip do |plan|
-  plan.name = 'Nice Tip'
-  plan.amount = 699
+Stripe.plan :pro do |plan|
+  plan.name = 'Professional'
+  plan.amount = 1999
+  plan.interval = 'month'
+end
+
+Stripe.plan :enterprise do |plan|
+  plan.name = 'Enterprise'
+  plan.amount = 9999
   plan.interval = 'month'
 end
 

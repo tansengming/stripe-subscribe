@@ -1,20 +1,28 @@
 en:
+  layouts:
+    stripe:
+      subscribe:
+        application:
+          title: Stripe Subscribe
   stripe:
     subscribe:
       plans:
         index:
           title: Pricing
-          lead: Lead
+          lead: All plans come with money back guarantees
           submit: Get Started
-          nice_tip:
+          pro:
             description:
-              html: Description
+              html: Ideal for Solopreneurs and Small Businesses
             features:
               html: >
-                <li>10 users included</li>
-                <li>2 GB of storage</li>
-                <li>Email support</li>
-                <li>Help center access</li>
+                <li>Priority Support within 24 Hours</li>
+          enterprise:
+            description:
+              html: Designed for Big Business
+            features:
+              html: >
+                <li>Priority Support within 5 Hours</li>
       payments:
         new:
           card_element_label: Credit or Debit Card
