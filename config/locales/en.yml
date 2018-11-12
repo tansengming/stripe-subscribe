@@ -1,0 +1,15 @@
+en:
+  stripe:
+    subscribe:
+      plans:
+        index:
+          title: Pricing
+          lead: ''
+          submit: Get Started
+          nice_tip:
+            features:
+              html: >
+                <li>10 users included</li>
+                <li>2 GB of storage</li>
+                <li>Email support</li>
+                <li>Help center access</li>

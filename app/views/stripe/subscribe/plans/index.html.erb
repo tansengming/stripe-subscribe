@@ -1,11 +1,10 @@
 <!-- https://getbootstrap.com/docs/4.1/examples/pricing/ -->
-
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">
-    Pricing
+    <%= t '.title' %>
   </h1>
   <p class="lead">
-    Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.
+    <%= t '.lead' %>
   </p>
 </div>
 
@@ -31,15 +30,12 @@
             -->
           </p>
           <ul class="list-unstyled mt-3 mb-4">
-            <li>10 users included</li>
-            <li>2 GB of storage</li>
-            <li>Email support</li>
-            <li>Help center access</li>
+            <%= t ".#{plan.id}.features.html" %>
           </ul>
         </div>
         <div class="card-footer bg-white border-top-0">
           <a class="btn btn-lg btn-block btn-outline-primary" href="<%= new_payment_path(plan: plan.id) %>">
-            Get Started
+            <%= t '.submit' %>
           </a>
         </div>
       </div>
