@@ -9,7 +9,7 @@ RSpec.describe 'Payment Flow' do
     expect(page.current_path).to eq '/stripe/subscribe/plans'
 
     # pick a plan
-    within '#nice_tip-plan' do
+    within '#pro-plan' do
       click_on 'Get Started'
     end
 
