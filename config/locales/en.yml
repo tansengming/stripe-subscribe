@@ -4,12 +4,18 @@ en:
       plans:
         index:
           title: Pricing
-          lead: ''
+          lead: Lead
           submit: Get Started
           nice_tip:
+            description:
+              html: Description
             features:
               html: >
                 <li>10 users included</li>
                 <li>2 GB of storage</li>
                 <li>Email support</li>
                 <li>Help center access</li>
+      payments:
+        new:
+          card_element_label: Credit or Debit Card
+          submit: Submit Payment
