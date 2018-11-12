@@ -9,9 +9,9 @@
 </div>
 
 <div class="row justify-content-md-center" data-turbolinks='false'>
-  <div class="card-deck mb-3 text-center px-3">
+  <div class="card-deck mb-3 text-center">
     <% @plans.each do |plan| %>
-      <div class="card mb-4 shadow-sm plan" id="<%= plan.id %>-plan">
+      <div class="card mb-4 shadow-sm plan" style="width: 18rem;" id="<%= plan.id %>-plan">
         <div class="card-header">
           <h4 class="my-0 font-weight-normal">
             <%= plan.name %>
