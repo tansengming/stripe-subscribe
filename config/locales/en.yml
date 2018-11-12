@@ -1,0 +1,29 @@
+en:
+  layouts:
+    stripe:
+      subscribe:
+        application:
+          title: Stripe Subscribe
+  stripe:
+    subscribe:
+      plans:
+        index:
+          title: Pricing
+          lead: All plans come with a money back guarantee
+          submit: Get Started
+          pro:
+            description:
+              html: Ideal for Solopreneurs and Small Businesses
+            features:
+              html: >
+                <li>Priority Support within 24 Hours</li>
+          enterprise:
+            description:
+              html: Designed for Big Business
+            features:
+              html: >
+                <li>Priority Support within 5 Hours</li>
+      payments:
+        new:
+          card_element_label: Credit or Debit Card
+          submit: Submit Payment

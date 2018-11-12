@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stripe subscribe</title>
+  <title><%= t '.title' %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag    "stripe/subscribe/application", media: "all" %>
   <%= javascript_include_tag "stripe/subscribe/application" %>
+  <%= stripe_javascript_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container-fluid">
+    <div class="row pt-3">
+      <main class="col" role="main">
+        <%= yield %>
+      </main>
+    </div>
+  </div>
 </body>
 </html>

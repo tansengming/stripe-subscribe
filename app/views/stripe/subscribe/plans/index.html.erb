@@ -1,0 +1,43 @@
+<!-- https://getbootstrap.com/docs/4.1/examples/pricing/ -->
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">
+    <%= t '.title' %>
+  </h1>
+  <p class="lead">
+    <%= t '.lead' %>
+  </p>
+</div>
+
+<div class="row justify-content-md-center" data-turbolinks='false'>
+  <div class="card-deck mb-3 text-center">
+    <% @plans.each do |plan| %>
+      <div class="card mb-4 shadow-sm plan" style="width: 18rem;" id="<%= plan.id %>-plan">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">
+            <%= plan.name %>
+          </h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">
+            <%= "$#{plan.amount / 100.0}" %>
+            <small class="text-muted">
+              /
+              <%= plan.interval[0..1] %>
+            </small>
+          </h1>
+          <p>
+            <%= t ".#{plan.id}.description.html" %>
+          </p>
+          <ul class="list-unstyled mt-3 mb-4">
+            <%= t ".#{plan.id}.features.html" %>
+          </ul>
+        </div>
+        <div class="card-footer bg-white border-top-0">
+          <a class="btn btn-lg btn-block btn-outline-primary" href="<%= new_payment_path(plan: plan.id) %>">
+            <%= t '.submit' %>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

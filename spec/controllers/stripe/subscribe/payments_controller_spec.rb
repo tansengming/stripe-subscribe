@@ -9,7 +9,7 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
     subject { get :new }
 
     context 'when there is a selected plan' do
-      subject { get :new, params: { plan: 'nice_tip' } }
+      subject { get :new, params: { plan: 'pro' } }
       it 'should be success' do
         expect(subject).to be_successful
       end
@@ -34,9 +34,9 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
     before  { StripeMock.start }
     after   { StripeMock.stop }
     subject { post :create, params: params }
-    before  { stripe_helper.create_plan(id: 'nice_tip') }
+    before  { stripe_helper.create_plan(id: 'pro') }
     let(:stripe_helper)  { StripeMock.create_test_helper }
-    let(:default_params) { { stripeToken: stripe_helper.generate_card_token, plan: 'nice_tip' } }
+    let(:default_params) { { stripeToken: stripe_helper.generate_card_token, plan: 'pro' } }
 
     context 'when there is a valid stripe token and plan' do
       let(:params) { default_params }
@@ -44,7 +44,7 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
       it 'should create a new stripe customer' do
         expect { subject }.to change { Stripe::Subscribe::RemoteResource.count }.by(1)
         expect(subject).to redirect_to '/'
-        expect(user.stripe_customer.subscriptions.data.map { |s| s.plan[:id] }).to eq ['nice_tip']
+        expect(user.stripe_customer.subscriptions.data.map { |s| s.plan[:id] }).to eq ['pro']
       end
     end
 
