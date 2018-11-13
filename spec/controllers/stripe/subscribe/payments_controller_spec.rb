@@ -15,6 +15,13 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
       end
     end
 
+    context 'when the selected plan is invalid' do
+      subject { get :new, params: { plan: 'invalid' } }
+      it 'should be a redirect' do
+        expect(subject).to redirect_to '/stripe/subscribe/plans'
+      end
+    end
+
     context 'when there is not a selected plan' do
       it 'should be a redirect' do
         expect(subject).to redirect_to '/stripe/subscribe/plans'
@@ -45,6 +52,15 @@ RSpec.describe Stripe::Subscribe::PaymentsController do
         expect { subject }.to change { Stripe::Subscribe::RemoteResource.count }.by(1)
         expect(subject).to redirect_to '/'
         expect(user.stripe_customer.subscriptions.data.map { |s| s.plan[:id] }).to eq ['pro']
+      end
+    end
+
+    context 'when the plan is empty' do
+      let(:params) { default_params.merge(plan: nil) }
+
+      it 'should not create a new stripe customer' do
+        expect { subject }.not_to change { Stripe::Subscribe::RemoteResource.count }
+        expect(subject).to redirect_to '/stripe/subscribe/payment/new'
       end
     end
 

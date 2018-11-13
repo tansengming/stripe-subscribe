@@ -1,3 +1,4 @@
+require 'stripe-rails'
 require 'stripe/subscribe/engine'
 
 module Stripe
