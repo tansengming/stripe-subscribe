@@ -1,3 +1,4 @@
+require 'devise'
 require 'stripe-rails'
 require 'stripe/subscribe/engine'
 
