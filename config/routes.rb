@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO
 # Rails.application.routes.draw do
 #   if Rails.application.config.stripe.auto_mount
