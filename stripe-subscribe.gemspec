@@ -18,6 +18,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'bootstrap'
   s.add_dependency 'devise'
-  s.add_dependency 'reform-rails'
   s.add_dependency 'stripe-rails'
 end

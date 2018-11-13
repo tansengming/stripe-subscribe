@@ -1,8 +1,9 @@
 module Stripe
   module Subscribe
-    class PaymentForm < Reform::Form
-      property :stripeToken
-      property :plan
+    class PaymentForm
+      include ActiveModel::Model
+
+      attr_accessor :stripeToken, :plan
 
       validates :stripeToken, presence: true
       validates :plan, presence: true

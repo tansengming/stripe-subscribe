@@ -21,7 +21,6 @@ gem 'rails', '~> 5.2.0'
 
 gem 'bootstrap'
 gem 'devise'
-gem 'reform-rails'
 gem 'sqlite3'
 gem 'stripe-rails'
 
