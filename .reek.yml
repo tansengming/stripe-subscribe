@@ -2,6 +2,9 @@ detectors:
   IrresponsibleModule:
     enabled: false
 directories:
+  "app/forms":
+    Attribute:
+      enabled: false
   "app/controllers":
     IrresponsibleModule:
       enabled: false
