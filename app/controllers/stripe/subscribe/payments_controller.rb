@@ -15,10 +15,9 @@ module Stripe
       end
 
       def create
-        payment_params = params.slice(:stripeToken, :plan)
-        @form = PaymentForm.new(OpenStruct.new)
+        @form = PaymentForm.new(payment_params)
 
-        if @form.validate(payment_params)
+        if @form.valid?
           Payments::Create.(stripe_token: payment_params[:stripeToken], plan_name: payment_params[:plan], user: current_user)
 
           redirect_to after_payment_success_path(current_user)
@@ -28,6 +27,10 @@ module Stripe
       end
 
       private
+
+      def payment_params
+        params.permit(:stripeToken, :plan)
+      end
 
       def after_payment_success_path(resource)
         signed_in_root_path(resource)
