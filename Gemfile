@@ -13,20 +13,3 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-
-# Note: The following lines are require for rails specs to run even though
-# they're repeated from the gemspec.
-
-gem 'rails', '~> 5.2.0'
-
-gem 'devise'
-gem 'sqlite3'
-gem 'stripe-rails'
-
-group :test do
-  gem 'capybara'
-  gem 'rspec-rails'
-  gem 'simplecov'
-  gem 'stripe-ruby-mock', require: 'stripe_mock'
-  gem 'tapp'
-end

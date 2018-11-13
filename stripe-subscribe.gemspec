@@ -18,4 +18,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'devise'
   s.add_dependency 'stripe-rails'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'stripe-ruby-mock'
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'tapp'
 end
