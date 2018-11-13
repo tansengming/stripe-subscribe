@@ -1,3 +1,4 @@
+require 'stripe'
 require 'stripe/subscribe/engine'
 
 module Stripe
