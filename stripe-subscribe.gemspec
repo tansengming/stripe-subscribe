@@ -24,4 +24,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'stripe-ruby-mock'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'tapp'
+  s.add_development_dependency 'webmock'
 end
