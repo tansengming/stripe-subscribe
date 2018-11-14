@@ -1,6 +1,21 @@
-# Stripe::Subscribe
+# Stripe::Subscribe: Stripe subscriptions made easy.
 
-Making Stripe Subscriptions easy
+This is a Rails Engine that makes it easier to get started with Stripe Subscriptions. You can fetch a user's subscription information and send them to a subscription page this way.
+
+```ruby
+# app/controllers/paid_features_controller.rb
+class PaidFeaturesController < ApplicationController
+  def show
+    if current_user.active_stripe_subcsriptions? # fetches subscription details from Stripe.
+      render
+    else
+      redirect_to stripe_subscribe.plans_path # Customizable views where users can select and pay for plan.
+    end
+  end
+end
+```
+
+[📫 Sign up for the Newsletter](http://tinyletter.com/stripe-rails) to receive occasional updates.
 
 ## Installation
 Add this line to your application's Gemfile:
