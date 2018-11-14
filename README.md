@@ -1,8 +1,8 @@
 # Stripe::Subscribe: Stripe subscriptions made easy
 
-🔴 **This is still in Alpha and not ready for Production** 🔴
+🔴 **This gem is still in Alpha and has not been tested on Production** 🔴
 
-This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription status and getting them to pay for a plan is as simple as,
+This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription and getting the user to select and pay for a plan is as simple as,
 
 ```ruby
 # app/controllers/paid_features_controller.rb
@@ -11,7 +11,7 @@ class PaidFeaturesController < ApplicationController
     if current_user.active_stripe_subcsriptions? # fetches subscription details from Stripe
       render
     else
-      redirect_to stripe_subscribe.plans_path # for users to select and pay for plans
+      redirect_to stripe_subscribe.plans_path # to select and pay for plans
     end
   end
 end
@@ -34,14 +34,14 @@ $ bundle
 
 ## Getting Started
 
-Start by installing and running migrations on the command line,
+Install and run the migrations on the command line,
 
 ```bash
 $ rails stripe_subscribe:install:migrations
 $ rails db:migrate
 ```
 
-Create plans files at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page.
+Create a plans file at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page.
 
 ```ruby
 # config/stripe/plans.rb
@@ -53,7 +53,7 @@ Stripe.plan :pro do |plan|
 end
 ```
 
-Run this on the command line to upload the plan to Stripe
+Run this on the command line to upload the plans to Stripe
 
 ```bash
 $ rake stripe:prepare
