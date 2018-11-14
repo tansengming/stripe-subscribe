@@ -6,10 +6,10 @@ This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Fet
 # app/controllers/paid_features_controller.rb
 class PaidFeaturesController < ApplicationController
   def show
-    if current_user.active_stripe_subcsriptions? # fetches subscription details from Stripe.
+    if current_user.active_stripe_subcsriptions? # fetches subscription details from Stripe
       render
     else
-      redirect_to stripe_subscribe.plans_path # Customizable views where users can select and pay for plan.
+      redirect_to stripe_subscribe.plans_path # for users to select and pay for plans
     end
   end
 end
@@ -32,27 +32,32 @@ $ bundle
 
 ## Getting Started
 
-Start by installing and running the migrations on the command line,
+Start by installing and running migrations on the command line,
 
 ```bash
-rails stripe_subscribe:install:migrations
-rails db:migrate
+> rails stripe_subscribe:install:migrations
+> rails db:migrate
 ```
 
-Then create a new file to store and submit your plans at `config/stripe/plans.rb`. This will be posted to Stripe and used to render the plans view of the engine.
+Create plans files at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page.
 
 ```ruby
 # config/stripe/plans.rb
 Stripe.plan :pro do |plan|
-  plan.name = 'Acme as a service PRIMO'
-  plan.amount = 699
+  plan.name = 'Professional'
+  plan.amount = 1999
+  plan.currency = 'usd'
   plan.interval = 'month'
 end
 ```
 
-Then run `rake stripe:prepare` to upload the plan to Stripe
+Run this on the command line to upload the plan to Stripe
 
-Next update the routes to point to the engine, note the call to `authenticate` is used by Devise to make sure only authenticated users will be able to access the route.
+```bash
+> rake stripe:prepare
+```
+
+Update the routes to mount the engine. `authenticate` is used by Devise so only authenticated users will be able to access the route.
 
 ```ruby
 # config/routes.rb
@@ -63,7 +68,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Include the following module to the User model to give it Stripe related methods like `active_stripe_subscription?`, `stripe_customer` etc
+Include the following module to the User model to give it Stripe related methods like `active_stripe_subscription?` and `stripe_customer`.
 
 ```ruby
 # app/models/user.rb
@@ -72,7 +77,7 @@ class User < ApplicationRecord
 end
 ```
 
-Finally, you will be able to restrict access to your application by querying a user's stripe subscriptions. `stripe_subscribe.plans_path` will start the user on the subscription flow.
+To restrict access to the application by querying a user's stripe subscriptions. `stripe_subscribe.plans_path` will start the user on the subscription flow.
 
 ```ruby
 # app/controllers/paid_features_controller.rb
