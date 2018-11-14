@@ -16,7 +16,7 @@ class PaidFeaturesController < ApplicationController
     if current_user.active_stripe_subcsriptions? # fetches subscription details from Stripe
       render
     else
-      redirect_to stripe_subscribe.plans_path # to select and pay for plans
+      redirect_to stripe_subscribe.plans_path # to select and pay for a plan
     end
   end
 end
@@ -46,7 +46,7 @@ $ rails stripe_subscribe:install:migrations
 $ rails db:migrate
 ```
 
-Create a plans file at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page,
+Configure your plans plans at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page,
 
 ```ruby
 # config/stripe/plans.rb
