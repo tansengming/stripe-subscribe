@@ -34,14 +34,14 @@ $ bundle
 
 ## Getting Started
 
-Install and run the migrations on the command line,
+Install and run the migrations:
 
 ```bash
 $ rails stripe_subscribe:install:migrations
 $ rails db:migrate
 ```
 
-Create a plans file at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page.
+Create a plans file at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page,
 
 ```ruby
 # config/stripe/plans.rb
@@ -53,7 +53,7 @@ Stripe.plan :pro do |plan|
 end
 ```
 
-Run this on the command line to upload the plans to Stripe
+Run this to upload the plans to Stripe,
 
 ```bash
 $ rake stripe:prepare
