@@ -1,6 +1,6 @@
 # Stripe::Subscribe: Stripe subscriptions made easy
 
-[![Gem Version](https://badge.fury.io/rb/stripe-rails.png)](http://badge.fury.io/rb/stripe-subscribe)
+[![Gem Version](https://badge.fury.io/rb/stripe-subscribe.png)](http://badge.fury.io/rb/stripe-subscribe)
 [![Build Status](https://travis-ci.org/tansengming/stripe-subscribe.png?branch=master)](https://travis-ci.org/tansengming/stripe-subscribe)
 [![Code Climate](https://codeclimate.com/github/tansengming/stripe-subscribe/badges/gpa.svg)](https://codeclimate.com/github/tansengming/stripe-subscribe)
 [![Test Coverage](https://codeclimate.com/github/tansengming/stripe-subscribe/badges/coverage.svg)](https://codeclimate.com/github/tansengming/stripe-subscribe/coverage)
