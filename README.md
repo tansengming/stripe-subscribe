@@ -1,6 +1,8 @@
 # Stripe::Subscribe: Stripe subscriptions made easy
 
-This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Fetching a customer's subscription status and getting them to pay for a plan is as simple as,
+*This is still in Alpha and not ready for Production*
+
+This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription status and getting them to pay for a plan is as simple as,
 
 ```ruby
 # app/controllers/paid_features_controller.rb
