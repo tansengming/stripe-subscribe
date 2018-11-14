@@ -1,5 +1,10 @@
 # Stripe::Subscribe: Stripe subscriptions made easy
 
+[![Gem Version](https://badge.fury.io/rb/stripe-rails.png)](http://badge.fury.io/rb/stripe-subscribe)
+[![Build Status](https://travis-ci.org/tansengming/stripe-subscribe.png?branch=master)](https://travis-ci.org/tansengming/stripe-subscribe)
+[![Code Climate](https://codeclimate.com/github/tansengming/stripe-subscribe/badges/gpa.svg)](https://codeclimate.com/github/tansengming/stripe-subscribe)
+[![Test Coverage](https://codeclimate.com/github/tansengming/stripe-subscribe/badges/coverage.svg)](https://codeclimate.com/github/tansengming/stripe-subscribe/coverage)
+
 🔴 **This gem is still in Alpha and has not been tested on Production** 🔴
 
 This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription and getting the user to select and pay for a plan is as simple as,
