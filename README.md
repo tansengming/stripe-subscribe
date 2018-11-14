@@ -1,6 +1,6 @@
 # Stripe::Subscribe: Stripe subscriptions made easy
 
-*This is still in Alpha and not ready for Production*
+🔴 **This is still in Alpha and not ready for Production** 🔴
 
 This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription status and getting them to pay for a plan is as simple as,
 
@@ -37,8 +37,8 @@ $ bundle
 Start by installing and running migrations on the command line,
 
 ```bash
-> rails stripe_subscribe:install:migrations
-> rails db:migrate
+$ rails stripe_subscribe:install:migrations
+$ rails db:migrate
 ```
 
 Create plans files at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page.
@@ -56,7 +56,7 @@ end
 Run this on the command line to upload the plan to Stripe
 
 ```bash
-> rake stripe:prepare
+$ rake stripe:prepare
 ```
 
 Update the routes to mount the engine. `authenticate` is used by Devise so only authenticated users will be able to access the route.
