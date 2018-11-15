@@ -18,7 +18,7 @@ Checking a user's subscription and getting the user to subscribe to a plan can b
 # app/controllers/paid_features_controller.rb
 class PaidFeaturesController < ApplicationController
   def show
-    if current_user.stripe_active_subcsription? # fetches subscription details from Stripe
+    if current_user.stripe_active_subcsription? # checks subscription from Stripe
       render
     else
       redirect_to stripe_subscribe.plans_path # to select and pay for a plan
