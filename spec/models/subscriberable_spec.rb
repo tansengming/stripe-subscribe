@@ -10,8 +10,8 @@ RSpec.describe Stripe::Subscriberable do
   let(:stripe_helper)   { StripeMock.create_test_helper }
   let(:stripe_customer) { Stripe::Customer.create source: stripe_helper.generate_card_token }
 
-  describe 'active_stripe_subscription?' do
-    subject { resource.active_stripe_subscription? }
+  describe 'stripe_active_subscription?' do
+    subject { resource.stripe_active_subscription? }
 
     context 'when there is a stripe customer' do
       before { resource.stripe_remote_resources.customers.create! remote_resource_id: stripe_customer.id }

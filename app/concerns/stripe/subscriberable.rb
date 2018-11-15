@@ -25,12 +25,12 @@ module Stripe
       end
     end
 
-    def active_stripe_subscriptions
+    def stripe_active_subscriptions
       stripe_subscriptions.select { |subscription| subscription.status == 'active' }
     end
 
-    def active_stripe_subscription?
-      active_stripe_subscriptions.any?
+    def stripe_active_subscription?
+      stripe_active_subscriptions.any?
     end
 
     private
