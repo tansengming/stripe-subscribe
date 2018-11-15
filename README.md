@@ -29,6 +29,8 @@ end
 
 [📫 Sign up for the Newsletter](http://tinyletter.com/stripe-rails) to receive occasional updates.
 
+On the road-map: handling cancellations, switching plans, trials, coupons, discounts, dealing with refunds. Feel free to post an issue if I'm missing anything.
+
 ## Installation
 
 Add this line to your application's Gemfile:
