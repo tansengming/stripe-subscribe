@@ -7,7 +7,12 @@
 
 🔴 **This gem is still in Alpha and has not been tested on Production** 🔴
 
-This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription and getting the user to subscribe to a plan is as simple as,
+This is a Rails Engine that makes it easy to work with Stripe Subscriptions. It does 2 major things,
+
+- views and controllers to handle plan selection and payment
+- adds methods on the model to fetch it's Stripe customer and subscriptions
+
+Checking a user's subscription and getting the user to subscribe to a plan is as simple as,
 
 ```ruby
 # app/controllers/paid_features_controller.rb
@@ -90,7 +95,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Include the module to mix in Stripe subscription methods to the `User`.
+Include the module to mix in Stripe subscription methods to the `User`. E.g. `#active_stripe_subcsriptions?`, `stripe_customer` etc.
 
 ```ruby
 # app/models/user.rb
@@ -99,7 +104,15 @@ class User < ApplicationRecord
 end
 ```
 
-With the new methods you will be able to retrieve a user's Stripe customer or subscription status, note that `stripe_subscribe.plans_path` will take the user to a page with the plans listed on `config/stripe/plans.rb`. They will then be able to select a plan and pay for them on those pages.
+You are now ready for user subscriptions on Stripe!
+
+You could use the new methods to retrieve a user's subscription status on the controller and block access to the action until they become a subscriber.
+
+
+
+note that `stripe_subscribe.plans_path` will take the user to a page with the plans listed on `config/stripe/plans.rb`. They will then be able to select a plan and pay for them on those pages.
+
+
 
 ```ruby
 # app/controllers/paid_features_controller.rb
