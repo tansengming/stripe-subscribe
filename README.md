@@ -7,10 +7,10 @@
 
 🔴 **This gem is still in Alpha and has not been tested on Production** 🔴
 
-This is a Rails Engine that makes it easy to work with Stripe Subscriptions. It does 2 major things,
+This is a Rails Engine that makes it easy to work with Stripe Subscriptions. It gives you 2 major things,
 
-- views and controllers to handle plan selection and payment
-- adds methods on the model to fetch it's Stripe customer and subscriptions
+- views and controllers so a user can select a plan and pay for it
+- methods on the model to fetch it's Stripe customer and subscriptions
 
 Checking a user's subscription and getting the user to subscribe to a plan is as simple as,
 
