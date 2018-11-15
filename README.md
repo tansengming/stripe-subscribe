@@ -34,7 +34,7 @@ end
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'stripe-subscribe'
+gem 'stripe-subscribe', github: 'tansengming/stripe-subscribe'
 ```
 
 And then execute:
