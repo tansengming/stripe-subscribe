@@ -51,7 +51,7 @@ $ rails db:migrate
 
 ## Getting Started
 
-Here's a look at the files that have to be updated on the Rails app. Don't panic.
+These are the files that have to be updated on your Rails app. Don't panic.
 
 ```
 .
@@ -66,7 +66,7 @@ Here's a look at the files that have to be updated on the Rails app. Don't panic
       └─ paid_features_controller.rb
 ```
 
-Configure your plans at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page,
+Configure your plans at `config/stripe/plans.rb`. The plans defined here will be uploaded to Stripe and used to render the plans page,
 
 ```ruby
 # config/stripe/plans.rb
@@ -84,7 +84,7 @@ Run this to upload the plans to Stripe,
 $ rake stripe:prepare
 ```
 
-Update the routes to mount the engine. Make sure that it is mounted by Devise's `authenticate` helper so only authenticated resources have access to the routes. This will be where users get to select a plan and pay for it.
+Update the routes to mount the engine. This will be the routes where users get to select a plan and pay for it. Make sure it is mounted within Devise's `authenticate` helper so only authenticated users get access.
 
 ```ruby
 # config/routes.rb
@@ -106,13 +106,7 @@ end
 
 You are now ready for user subscriptions on Stripe!
 
-You could use the new methods to retrieve a user's subscription status on the controller and block access to the action until they become a subscriber.
-
-
-
-note that `stripe_subscribe.plans_path` will take the user to a page with the plans listed on `config/stripe/plans.rb`. They will then be able to select a plan and pay for them on those pages.
-
-
+You could use the new methods to retrieve a user's subscription status on the controller and block access to the action until they become a subscriber. Redirecting users to `stripe_subscribe.plans_path` will take the user to a page with the plans listed on `config/stripe/plans.rb`. They will then be able to select a plan and pay for them on those pages.
 
 ```ruby
 # app/controllers/paid_features_controller.rb
