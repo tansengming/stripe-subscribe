@@ -49,7 +49,8 @@ $ rails db:migrate
 This is a view of the files that have to be updated on the Rails app. Don't panic.
 
 ```
-├── config
+.
+├─ config
 │  ├─ stripe
 │  │  └─ plans.rb
 │  └─ routes.rb
@@ -60,7 +61,7 @@ This is a view of the files that have to be updated on the Rails app. Don't pani
       └─ paid_features_controller.rb
 ```
 
-Configure your plans plans at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page,
+Configure your plans at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page,
 
 ```ruby
 # config/stripe/plans.rb
@@ -78,7 +79,7 @@ Run this to upload the plans to Stripe,
 $ rake stripe:prepare
 ```
 
-Update the routes to mount the engine. Please make sure that it is mounted within Devise's `authenticate` helper.
+Update the routes to mount the engine. Make sure that it is mounted by Devise's `authenticate` helper so only authenticated resources have access to the routes. This will be where users get to select a plan and pay for it.
 
 ```ruby
 # config/routes.rb
@@ -98,7 +99,7 @@ class User < ApplicationRecord
 end
 ```
 
-With the mixed in methods you will be able to retrieve a user's Stripe customer or subscription status, note that `stripe_subscribe.plans_path` will take the user to a page with the plans on `config/stripe/plans.rb` for them to select and subscribe to.
+With the new methods you will be able to retrieve a user's Stripe customer or subscription status, note that `stripe_subscribe.plans_path` will take the user to a page with the plans listed on `config/stripe/plans.rb`. They will then be able to select a plan and pay for them on those pages.
 
 ```ruby
 # app/controllers/paid_features_controller.rb
