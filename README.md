@@ -37,8 +37,6 @@ And then execute:
 $ bundle
 ```
 
-## Getting Started
-
 Install and run the migrations:
 
 ```bash
@@ -46,7 +44,9 @@ $ rails stripe_subscribe:install:migrations
 $ rails db:migrate
 ```
 
-This is a view of the files that have to be updated on the Rails app. Don't panic.
+## Getting Started
+
+Here's a look at the files that have to be updated on the Rails app. Don't panic.
 
 ```
 .
