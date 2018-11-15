@@ -12,7 +12,7 @@ This is a Rails Engine that makes it easy to work with Stripe Subscriptions. It 
 - views and controllers so a user can select a plan and pay for it
 - methods on the model to fetch it's Stripe customer and subscriptions
 
-Checking a user's subscription and getting the user to subscribe to a plan is as simple as,
+Checking a user's subscription and getting the user to subscribe to a plan can be as simple as,
 
 ```ruby
 # app/controllers/paid_features_controller.rb
