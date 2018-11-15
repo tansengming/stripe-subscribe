@@ -7,7 +7,7 @@
 
 🔴 **This gem is still in Alpha and has not been tested on Production** 🔴
 
-This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription and getting the user to select and pay for a plan is as simple as,
+This is a Rails Engine that makes it easy to work with Stripe Subscriptions. Checking a user's subscription and getting the user to subscribe to a plan is as simple as,
 
 ```ruby
 # app/controllers/paid_features_controller.rb
@@ -46,6 +46,20 @@ $ rails stripe_subscribe:install:migrations
 $ rails db:migrate
 ```
 
+This is a view of the files that have to be updated on the Rails app. Don't panic.
+
+```
+├── config
+│  ├─ stripe
+│  │  └─ plans.rb
+│  └─ routes.rb
+└─ app
+   ├─ models
+   │  └─ user.rb
+   └─ controllers
+      └─ paid_features_controller.rb
+```
+
 Configure your plans plans at `config/stripe/plans.rb`. This will be uploaded to Stripe and used to render the plans page,
 
 ```ruby
@@ -64,7 +78,7 @@ Run this to upload the plans to Stripe,
 $ rake stripe:prepare
 ```
 
-Update the routes to mount the engine. `authenticate` is used by Devise so only authenticated users will be able to access the route.
+Update the routes to mount the engine. Please make sure that it is mounted within Devise's `authenticate` helper.
 
 ```ruby
 # config/routes.rb
@@ -75,7 +89,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Include the following module to the User model to give it Stripe related methods like `active_stripe_subscription?` and `stripe_customer`.
+Include the module to mix in Stripe subscription methods to the `User`.
 
 ```ruby
 # app/models/user.rb
@@ -84,7 +98,7 @@ class User < ApplicationRecord
 end
 ```
 
-To restrict access to the application by querying a user's stripe subscriptions. `stripe_subscribe.plans_path` will start the user on the subscription flow.
+With the mixed in methods you will be able to retrieve a user's Stripe customer or subscription status, note that `stripe_subscribe.plans_path` will take the user to a page with the plans on `config/stripe/plans.rb` for them to select and subscribe to.
 
 ```ruby
 # app/controllers/paid_features_controller.rb
