@@ -106,7 +106,9 @@ end
 
 You are now ready for user subscriptions on Stripe!
 
-You could use the new methods to retrieve a user's subscription status on the controller and block access to the action until they become a subscriber. Redirecting users to `stripe_subscribe.plans_path` will take the user to a page with the plans listed on `config/stripe/plans.rb`. They will then be able to select a plan and pay for them on those pages.
+You can use the new methods to retrieve a user's subscription status on the controller and block access to the action until they become a subscriber.
+
+Redirecting users to `stripe_subscribe.plans_path` will take the user to a page with the plans listed on `config/stripe/plans.rb`. They will then be able to select a plan and pay for them on those pages.
 
 ```ruby
 # app/controllers/paid_features_controller.rb
