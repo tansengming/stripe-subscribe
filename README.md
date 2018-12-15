@@ -9,7 +9,7 @@
 
 This is a Rails Engine that makes it easy to work with Stripe Subscriptions. It provides,
 
-- views and controllers for showing users subscription plans
+- views and controllers for showing Stripe plans
 - integrated with views and controllers for payments
 - methods on any Devise resource to fetch it's Stripe subscriptions
 
