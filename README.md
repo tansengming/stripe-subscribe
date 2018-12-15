@@ -7,10 +7,11 @@
 
 🔴 **This gem is still in Alpha and has not been tested on Production** 🔴
 
-This is a Rails Engine that makes it easy to work with Stripe Subscriptions. It helps by creating:
+This is a Rails Engine that makes it easy to work with Stripe Subscriptions. It provides,
 
-- views and controllers that allow a user to pick a plan and pay for it
-- methods on the model to fetch it's related Stripe subscriptions
+- views and controllers for showing users subscription plans
+- integrated with views and controllers for payments
+- methods on any Devise resource to fetch it's Stripe subscriptions
 
 Checking a user's subscription and getting the user to subscribe to a plan can be as simple as,
 
@@ -128,6 +129,12 @@ end
 ## Customizing
 
 TBD
+
+## Architecture
+
+The engine is built simply but is highly coupled with Stripe, Devise and Rails.
+
+Details TBD
 
 ## Contributing
 
